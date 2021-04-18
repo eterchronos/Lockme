@@ -34,10 +34,7 @@ public class Graphic  extends Password implements ActionListener {
 	
 	
 	public Graphic () {
-		
-		
-		
-	
+
 		
 		//app is running like this by default
 		inputLength.setText("10");
@@ -47,7 +44,6 @@ public class Graphic  extends Password implements ActionListener {
 		//add content
 		window.add(scroll);
 		window.add(bGen);
-		//window.add(passField);
 		window.add(labelInfo1);
 		window.add(inputLength);
 		window.add(option1);
