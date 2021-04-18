@@ -104,8 +104,8 @@ public class Graphic  extends Password implements ActionListener {
 			
 			if(inputLength.getText().isEmpty() || inputLength.getText().equals("0")) {
 				JOptionPane.showMessageDialog(window,
-						"Vish... \n Quantidade Não Pode Ser Vazio. \n Quantidade Não pode ser 0."
-						+ " \n Recomenda-se que a quantidade,\n seja no minímo 8."
+						"Vish... \n Não pode ser 0. \n Quantidade Não Pode Ser Vazio. "
+						+ " \n Recomenda-se por segurança no mínimo 8 dígitos."
 						);
 			}else {
 			setPassword(Integer.parseInt(inputLength.getText()));
@@ -113,16 +113,9 @@ public class Graphic  extends Password implements ActionListener {
 			passField.setText(this.myPass);
 			}
 		}
-		
-		
-			 
-		
-		
+			
 		
 		
 	}
-	
-
-	
 	
 }
