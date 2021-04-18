@@ -1,37 +1,53 @@
 package locker;
 
+import java.awt.Font;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JCheckBox;
+import javax.swing.ScrollPaneConstants;
 
 public class Graphic  extends Password implements ActionListener {
 
-	private JFrame window  	 	   = new JFrame();
-	private JTextArea passField    = new JTextArea();
-	private JButton bGen  		   = new JButton("Gerar");
-	private JLabel labelInfo1	   = new JLabel();
-	private JTextField inputLength = new JTextField();
+	private JFrame window  	 	  		   = new JFrame();
+	private JTextArea passField  		   = new JTextArea();
+	private JButton bGen  		 		   = new JButton("Gerar");
+	private JLabel labelInfo1	   		   = new JLabel();
+	private JTextField inputLength 		   = new JTextField();
 	private String myPass;
-	JCheckBox option1			   = new JCheckBox();
-	JCheckBox option2			   = new JCheckBox();
-	JCheckBox option3			   = new JCheckBox();
-	JCheckBox option4			   = new JCheckBox();
+	private JCheckBox option1			   = new JCheckBox();
+	private JCheckBox option2			   = new JCheckBox();
+	private JCheckBox option3			   = new JCheckBox();
+	private JCheckBox option4			   = new JCheckBox();
+	private JScrollPane scroll			   = new JScrollPane();
+
+	
+	private Font labels = new Font("Courier New",Font.BOLD,14);
+	
 	
 	public Graphic () {
+		
+		
+		
 	
+		
+		//app is running like this by default
 		inputLength.setText("10");
 		option1.setSelected(true);
 		setOption(1);
 		
+		//add content
+		window.add(scroll);
 		window.add(bGen);
-		window.add(passField);
+		//window.add(passField);
 		window.add(labelInfo1);
 		window.add(inputLength);
 		window.add(option1);
@@ -43,11 +59,13 @@ public class Graphic  extends Password implements ActionListener {
 		bGen.setBounds(80,129,80,20);
 		labelInfo1.setBounds(0,0,250,30);
 		passField.setBounds(0,160,250,60);
+		scroll.setBounds(0,160,250,60);
 		inputLength.setBounds(0,35,250,30);
 		option1.setBounds(0,70,125,20);
 		option2.setBounds(125,70,125,20);
 		option3.setBounds(0,100,125,20);
 		option4.setBounds(125,100,125,20);
+		
 		
 		//Texts
 		labelInfo1.setText("Qual O Tamanho Da Sua Senha?");
@@ -63,6 +81,18 @@ public class Graphic  extends Password implements ActionListener {
 		option3.addActionListener(this);
 		option4.addActionListener(this);
 		
+		
+		//fonts
+		bGen.setFont(labels);
+		option1.setFont(labels);
+		option2.setFont(labels);
+		option3.setFont(labels);
+		option4.setFont(labels);
+		labelInfo1.setFont(labels);
+		passField.setFont(labels);
+		
+		//others
+		scroll.setViewportView(passField);
 		passField.setLineWrap(true);
 		window.setTitle("Lockme");	
 		window.setSize(250,260);
