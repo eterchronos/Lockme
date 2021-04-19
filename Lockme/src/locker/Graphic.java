@@ -1,7 +1,7 @@
 package locker;
 
+import java.awt.Color;
 import java.awt.Font;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -13,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ScrollPaneConstants;
 
 public class Graphic  extends Password implements ActionListener {
 
@@ -30,7 +29,10 @@ public class Graphic  extends Password implements ActionListener {
 	private JScrollPane scroll			   = new JScrollPane();
 
 	
-	private Font labels = new Font("Courier New",Font.BOLD,14);
+	private Font myFontDefault = new Font("Courier New",Font.BOLD,14);
+	private Color cDark 	= new Color(32,33,43);
+	private Color cAccent 	= new Color(42, 44, 57);
+	private Color cWhite 	= new Color(255,255,255);
 	
 	
 	public Graphic () {
@@ -60,33 +62,44 @@ public class Graphic  extends Password implements ActionListener {
 		option1.setBounds(0,70,125,20);
 		option2.setBounds(125,70,125,20);
 		option3.setBounds(0,100,125,20);
-		option4.setBounds(125,100,125,20);
-		
-		
+		option4.setBounds(125,100,125,20);	
 		//Texts
 		labelInfo1.setText("Qual O Tamanho Da Sua Senha?");
 		option1.setText("123");
 		option2.setText("Abc");
 		option3.setText("1A3b");
-		option4.setText("#a2A");
-		
+		option4.setText("#a2A");	
 		//listener
 		bGen.addActionListener(this);
 		option1.addActionListener(this);
 		option2.addActionListener(this);
 		option3.addActionListener(this);
 		option4.addActionListener(this);
-		
-		
 		//fonts
-		bGen.setFont(labels);
-		option1.setFont(labels);
-		option2.setFont(labels);
-		option3.setFont(labels);
-		option4.setFont(labels);
-		labelInfo1.setFont(labels);
-		passField.setFont(labels);
-		
+		bGen.setFont(myFontDefault);
+		option1.setFont(myFontDefault);
+		option2.setFont(myFontDefault);
+		option3.setFont(myFontDefault);
+		option4.setFont(myFontDefault);
+		labelInfo1.setFont(myFontDefault);
+		passField.setFont(myFontDefault);
+		//colors
+		bGen.setForeground(cWhite);
+		option1.setForeground(cWhite);
+		option2.setForeground(cWhite);
+		option3.setForeground(cWhite);
+		option4.setForeground(cWhite);
+		passField.setForeground(cWhite);
+		labelInfo1.setForeground(cWhite);
+		inputLength.setForeground(cWhite);
+		bGen.setBackground(cAccent);
+		option1.setBackground(cDark);
+		option2.setBackground(cDark);
+		option3.setBackground(cDark);
+		option4.setBackground(cDark);	
+		passField.setBackground(cAccent);
+		inputLength.setBackground(cAccent);
+		window.getContentPane().setBackground(cDark);
 		//others
 		scroll.setViewportView(passField);
 		passField.setLineWrap(true);
