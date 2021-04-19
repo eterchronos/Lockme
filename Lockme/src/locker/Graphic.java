@@ -5,6 +5,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -27,6 +28,7 @@ public class Graphic  extends Password implements ActionListener {
 	private JCheckBox option3			   = new JCheckBox();
 	private JCheckBox option4			   = new JCheckBox();
 	private JScrollPane scroll			   = new JScrollPane();
+	private ButtonGroup optionGroup        = new ButtonGroup();
 
 	
 	private Font myFontDefault = new Font("Courier New",Font.BOLD,14);
@@ -109,6 +111,11 @@ public class Graphic  extends Password implements ActionListener {
 		window.setResizable(false);
 		window.setLocationRelativeTo(null);
 		window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//optgroup
+		optionGroup.add(option1);
+		optionGroup.add(option2);
+		optionGroup.add(option3);
+		optionGroup.add(option4);
 			
 	}
 
@@ -117,28 +124,16 @@ public class Graphic  extends Password implements ActionListener {
 		
 		if(arg0.getSource() == option1) {
 			setOption(1);
-			option2.setSelected(false);
-			option3.setSelected(false);
-			option4.setSelected(false);
-			 System.out.println(getOption());
+		
 		}else if(arg0.getSource() == option2) {
 			setOption(2);
-			option1.setSelected(false);
-			option3.setSelected(false);
-			option4.setSelected(false);
-			 System.out.println(getOption());
+			
 		}else if(arg0.getSource() == option3) {
 			setOption(3);
-			option1.setSelected(false);
-			option2.setSelected(false);
-			option4.setSelected(false);
-			 System.out.println(getOption());
+			
 		}else if(arg0.getSource() == option4) {
 			setOption(4);
-			option1.setSelected(false);
-			option2.setSelected(false);
-			option3.setSelected(false);
-			 System.out.println(getOption());
+			
 		}else if (arg0.getSource() == bGen) {
 			
 			if(inputLength.getText().isEmpty() || inputLength.getText().equals("0")) {
